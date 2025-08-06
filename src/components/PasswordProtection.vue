@@ -7,7 +7,7 @@ const error = ref('');
 const loading = ref(false);
 
 // 从环境变量获取密码
-const PASSWORD = import.meta.env.VITE_PASSWORD || 'defaultpassword';
+const PASSWORD = import.meta.env.VITE_PASSWORD || 'free';
 
 defineProps({
   onVerify: Function
