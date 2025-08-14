@@ -7,6 +7,10 @@ import ResultTabs from '@/components/ResultTabs.vue';
 import SearchStats from '@/components/SearchStats.vue';
 import ApiStatus from '@/components/ApiStatus.vue';
 import ApiDocs from '@/components/ApiDocs.vue';
+import PasswordProtection from '@/components/PasswordProtection.vue';
+
+// 验证状态
+const isVerified = ref(false);
 
 // 搜索状态
 const loading = ref(false);
@@ -46,6 +50,10 @@ const switchToDocs = () => {
   currentPage.value = 'docs';
 };
 
+// 处理验证成功
+const handleVerify = (verified: boolean) => {
+  isVerified.value = verified;
+};
 
 
 // 处理搜索
@@ -336,6 +344,15 @@ onUnmounted(() => {
 
 <template>
   <div class="min-h-screen bg-background text-foreground transition-colors duration-300 flex flex-col">
+    <!-- 密码保护 -->
+    <PasswordProtection
+      v-if="!isVerified"
+      @verify="handleVerify"
+      :onVerify="handleVerify"
+    />
+
+    <!-- 主内容区域 -->
+    <div v-else>
     <!-- 背景装饰 -->
     <div class="bg-decorative"></div>
     
@@ -444,6 +461,7 @@ onUnmounted(() => {
         </div>
       </div>
     </footer>
+  </div>
   </div>
 </template>
 
