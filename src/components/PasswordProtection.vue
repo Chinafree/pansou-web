@@ -94,7 +94,7 @@ onMounted(() => {
       </form>
 
       <div class="mt-6 text-center text-sm text-muted-foreground">
-        <p>密码可在环境变量中配置 (VITE_PASSWORD)</p>
+        <p>因服务器资源有限，加入了密码校验。</p>
       </div>
     </div>
   </div>
