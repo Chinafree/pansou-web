@@ -32,4 +32,4 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SERVER_KEY }}
         script: |
-          sudo systemctl restart nginx
+          sudo /etc/init.d/nginx restart
